@@ -1,0 +1,95 @@
+*{
+    background-color:#F5F3E7;
+}
+.label{
+    margin-top: 20px;
+    text-align: center;
+   font-stretch: expanded;
+   font-size:18px ;
+   align-items: center;
+   margin-bottom: 6px;
+  }
+  input{
+    height: 25px;
+    width: 300px;
+    font-size: 14px;
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  .userData{
+    padding: 10px 0px;
+  }
+  .userData:hover{
+    cursor: pointer;
+    background-color: whitesmoke;
+    color:dimgray;
+    font-size: 20px;
+  }
+  button{
+    margin-top: 10px;
+    padding: 5px;
+    align-items: center;
+    text-align: center;
+    border-radius: 3px;
+    width: 100px;
+    justify-content: center;
+    background-color:#EFE2BA;
+    border-color: burlywood;
+  }
+  button:hover{
+    background-color:#dfd49b;
+    cursor: pointer;
+  }
+  .header{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background-color:#EFE2BA;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .headerin{
+    background-color:#EFE2BA;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 20px 60px;
+    
+    
+  }
+  .headerin:hover{
+    cursor: pointer;
+    background-color:#f1ecd0;
+    border-radius: 10px;
+  }
+  img{
+    height: 20px;
+    width: 80px;
+    cursor: pointer;
+
+  }
+  form{
+    justify-content: center;
+  }
+.footer{
+    position: fixed;
+    bottom: 0;
+    height: 30px;
+    background-color:#EFE2BA;
+ 
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 15px;
+}
+a{
+    text-decoration: none !important;
+    color:black;
+    background-color:#EFE2BA;
+}
+a:hover{
+    cursor: pointer;
+    background-color:#f1ecd0;
+}
