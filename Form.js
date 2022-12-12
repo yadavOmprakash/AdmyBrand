@@ -1,35 +1,37 @@
 import React, { useEffect, useState } from 'react'
 import './Form.css'
-import $ from "jquery";
-import "jquery-ui-dist/jquery-ui";
+
 
 function Form() {
     const [year, setYear] = useState("")
     const [users, setUsers] = useState("")
     const [isValid, setIsValid] = useState(false)
     const [click, setIsClick] = useState(false)
-    const [sendData,setSendData]=useState({})
+    const [title, setTitle] = useState("")
+    const [body, setBody] = useState("")
 
-    const $ = require( "jquery" )( window );
     useEffect(() => {
         if (year === "2022") {
             setIsValid(true);
         }
     }, [year, isValid])
 
-useEffect(()=>{
 
-    var fomrA=document.getElementById("formA");
-    fomrA.addEventListener('submit',function(e){
-        e.preventDefault()
-        var title=document.getElementById("title").value
-        var body=document.getElementById("body").value
-        $.post("https://jsonplaceholder.typicode.com/posts",{title:title,body:body},function(data){console.log(data)}) 
-    })
-},[])
-const submitted=()=>{
+    const saveUser=()=>{
+        let data={title,body}
+        fetch('https://jsonplaceholder.typicode.com/posts',{
+            method: 'POST',
+            headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(data)
+        }).then((result)=>{
+            console.log("result",result);
+        })
+    }
 
-}
+
 
 
     const InputYear = (e) => {
@@ -58,12 +60,7 @@ const submitted=()=>{
         alert("Enter title and Body details to submit ")
     }
 
-    const contactInfo=()=>{
-        alert("Name - Ompraksh yadav")
-        alert("Phone - 9871397577")
-        alert("Email - op21yadav@gmail.com")
-    }
-
+   
     return (
         <div>
             <div className='header'>
@@ -72,7 +69,7 @@ const submitted=()=>{
                 <div className='headerin' onClick={working}>How it Works?</div>
                 <div className='headerin'>About</div>
               
-                <div className='headerin' ><a href="https://github.com/yadavOmprakash" target="_blank">Contact</a></div>
+                <div className='headerin' ><a href="https://github.com/yadavOmprakash" target="_blank" rel="noreferrer" >Contact</a></div>
             </div>
             <div className='label'>
                 <form >
@@ -82,10 +79,10 @@ const submitted=()=>{
             {isValid && <div >{users} </div>}
             {click &&
                 <div >
-                    <form id='formA'>
-                        <label> Title<input placeholder="Enter title here" required  id='title'/></label><br />
-                        <label > Body<input placeholder="Enter body here" required id='body' /></label><br />
-                        <button  onSubmit={submitted} type="submit">Submit</button>
+                    <form>
+                        <label> Title<input placeholder="Enter title here" required  id='title' value={title} onChange={(e)=>{setTitle(e.target.value)}}/></label><br />
+                        <label > Body<input placeholder="Enter body here" required id='body' value={body} onChange={(e)=>{setBody(e.target.value)}}/></label><br />
+                        <button onClick={saveUser}  type="submit">Submit</button>
                     </form>
                 </div>}
             <div className='footer'>
